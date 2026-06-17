@@ -1,0 +1,28 @@
+[
+    {
+        "ip": "192.168.1.1",
+        "hostname": "ROUTER",
+        "open_ports": [
+            {
+                "port": 80,
+                "service": "HTTP"
+            },
+            {
+                "port": 443,
+                "service": "HTTPS"
+            }
+        ],
+        "mac": "AA:BB:CC:DD:EE:FF"
+    },
+    {
+        "ip": "192.168.1.10",
+        "hostname": "SERVER01",
+        "open_ports": [
+            {
+                "port": 445,
+                "service": "SMB"
+            }
+        ],
+        "mac": "11:22:33:44:55:66"
+    }
+]
