@@ -1,40 +1,38 @@
-# Network Device Scanner
+# Network Asset Discovery Dashboard
 
-A multithreaded Python network scanner that performs host discovery, hostname resolution, TCP port scanning, MAC address identification, and JSON reporting.
+A Flask-based network asset discovery dashboard that performs host discovery, service enumeration, MAC address identification, and visualizes network assets through a web interface.
 
 ## Features
 
-* ICMP host discovery (Ping Sweep)
-* Hostname resolution
-* TCP port scanning
-* Service identification
-* MAC address discovery
-* Multithreaded scanning using ThreadPoolExecutor
-* JSON report generation
-* User-defined subnet scanning
+* ICMP Host Discovery (Ping Sweep)
+* Hostname Resolution
+* TCP Port Scanning
+* Service Detection
+* MAC Address Discovery
+* Multithreaded Scanning
+* JSON Reporting
+* Flask Web Dashboard
+* Network Asset Visualization
 
 ## Technologies Used
 
-* Python 3
-* socket
-* subprocess
-* ipaddress
-* concurrent.futures
-* scapy
+* Python
+* Flask
+* Socket Programming
+* Scapy
+* ThreadPoolExecutor
+* HTML/CSS
+* JSON
 
-## Supported Services
+## Dashboard Features
 
-| Port | Service |
-| ---- | ------- |
-| 21   | FTP     |
-| 22   | SSH     |
-| 53   | DNS     |
-| 80   | HTTP    |
-| 135  | RPC     |
-| 139  | NetBIOS |
-| 443  | HTTPS   |
-| 445  | SMB     |
-| 3389 | RDP     |
+* Live host count
+* Open service count
+* Asset inventory table
+* Hostname identification
+* MAC address visibility
+* Service enumeration display
+
 
 ## Usage
 
@@ -44,46 +42,16 @@ Run the scanner:
 python scanner.py
 ```
 
-Enter a subnet when prompted:
+Run the dashboard:
 
-```text
-Enter Subnet: 192.168.1.0/24
+```bash
+python app.py
 ```
 
-Example output:
+Open:
 
 ```text
-192.168.1.1 - gpon.net
-  Port 53 OPEN DNS
-  Port 80 OPEN HTTP
-  Port 443 OPEN HTTPS
-
-192.168.1.2 - DESKTOP-SQUJU4C
-  Port 135 OPEN RPC
-  Port 139 OPEN NetBIOS
-  Port 445 OPEN SMB
-```
-
-## JSON Reporting
-
-Scan results are automatically exported to a JSON file.
-
-Example:
-
-```json
-[
-    {
-        "ip": "192.168.1.1",
-        "hostname": "ROUTER",
-        "open_ports": [
-            {
-                "port": 80,
-                "service": "HTTP"
-            }
-        ],
-        "mac": "AA:BB:CC:DD:EE:FF"
-    }
-]
+http://127.0.0.1:5000
 ```
 
 ## Project Structure
@@ -92,23 +60,14 @@ Example:
 Network-Device-Scanner/
 │
 ├── scanner.py
+├── app.py
+├── templates/
+│   └── index.html
 ├── sample_scan_results.json
-├── .gitignore
-└── README.md
+├── README.md
+└── .gitignore
 ```
-
-## Learning Objectives
-
-This project was built to strengthen practical knowledge of:
-
-* Network discovery
-* TCP/IP networking
-* Host enumeration
-* Port scanning techniques
-* Multithreading in Python
-* Structured data reporting
-* Python socket programming
 
 ## Disclaimer
 
-This tool is intended for educational purposes and authorized network assessment only. Only scan networks and devices you own or have permission to test.
+This project is intended for educational purposes and authorized network assessment only.
