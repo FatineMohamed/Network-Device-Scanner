@@ -131,14 +131,14 @@ for host in results:
             f"  MAC : {host["mac"]}"
         )
 
-with open("scan_results.json","w") as file:
+with open("sample_scan_results.json","w") as file:
     json.dump(results,file,indent=4)
 
 alive_hosts = len(results)
 
 print(f"\nFound {alive_hosts} live hosts")
 
-print("\nResults Saved to scan_results.json")
+print("\nResults Saved to sample_scan_results.json")
 
 # print(results)
 # print(f"\n Found {alive_hosts} live hosts")

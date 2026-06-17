@@ -2,6 +2,47 @@
     {
         "ip": "192.168.1.1",
         "hostname": "ROUTER",
+        "mac": "AA:BB:CC:DD:EE:01",
+        "open_ports": [
+            {
+                "port": 53,
+                "service": "DNS"
+            },
+            {
+                "port": 80,
+                "service": "HTTP"
+            },
+            {
+                "port": 443,
+                "service": "HTTPS"
+            }
+        ]
+    },
+
+    {
+        "ip": "192.168.1.10",
+        "hostname": "DC01",
+        "mac": "AA:BB:CC:DD:EE:02",
+        "open_ports": [
+            {
+                "port": 53,
+                "service": "DNS"
+            },
+            {
+                "port": 135,
+                "service": "RPC"
+            },
+            {
+                "port": 445,
+                "service": "SMB"
+            }
+        ]
+    },
+
+    {
+        "ip": "192.168.1.20",
+        "hostname": "WEBSERVER",
+        "mac": "AA:BB:CC:DD:EE:03",
         "open_ports": [
             {
                 "port": 80,
@@ -11,18 +52,52 @@
                 "port": 443,
                 "service": "HTTPS"
             }
-        ],
-        "mac": "AA:BB:CC:DD:EE:FF"
+        ]
     },
+
     {
-        "ip": "192.168.1.10",
-        "hostname": "SERVER01",
+        "ip": "192.168.1.50",
+        "hostname": "WORKSTATION01",
+        "mac": "AA:BB:CC:DD:EE:04",
+        "open_ports": [
+            {
+                "port": 135,
+                "service": "RPC"
+            },
+            {
+                "port": 139,
+                "service": "NetBIOS"
+            },
+            {
+                "port": 445,
+                "service": "SMB"
+            }
+        ]
+    },
+
+    {
+        "ip": "192.168.1.60",
+        "hostname": "WORKSTATION02",
+        "mac": "AA:BB:CC:DD:EE:05",
         "open_ports": [
             {
                 "port": 445,
                 "service": "SMB"
             }
-        ],
-        "mac": "11:22:33:44:55:66"
+        ]
+    },
+
+    {
+        "ip": "192.168.1.100",
+        "hostname": "Unknown",
+        "mac": "AA:BB:CC:DD:EE:06",
+        "open_ports": []
+    },
+
+    {
+        "ip": "192.168.1.101",
+        "hostname": "Unknown",
+        "mac": "AA:BB:CC:DD:EE:07",
+        "open_ports": []
     }
 ]

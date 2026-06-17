@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Asset Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#0f172a;
+            color:#e2e8f0;
+            font-family:Segoe UI, sans-serif;
+            padding:40px;
+        }
+
+        h1{
+            margin-bottom:30px;
+        }
+
+        .stats{
+            display:flex;
+            gap:20px;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:20px;
+            border-radius:12px;
+            min-width:200px;
+        }
+
+        .card h2{
+            color:#38bdf8;
+            margin-bottom:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:#1e293b;
+            border-radius:12px;
+            overflow:hidden;
+        }
+
+        th{
+            background:#334155;
+            padding:15px;
+            text-align:left;
+        }
+
+        td{
+            padding:15px;
+            border-top:1px solid #475569;
+        }
+
+        tr:hover{
+            background:#273449;
+        }
+
+        .port{
+            display:inline-block;
+            background:#0ea5e9;
+            color:white;
+            padding:5px 10px;
+            border-radius:8px;
+            margin:3px;
+            font-size:12px;
+        }
+
+        .hostname-unknown{
+            color:#f59e0b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Network Asset Dashboard By Mohamed Fatine</h1>
+
+<div class="stats">
+
+    <div class="card">
+        <h2>{{ devices|length }}</h2>
+        <p>Live Hosts</p>
+    </div>
+
+    <div class="card">
+        <h2>Network</h2>
+        <p>Discovered Assets</p>
+    </div>
+
+</div>
+
+<div class="card">
+    <h2>{{ total_ports }}</h2>
+    <p>Open Services</p>
+</div>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>IP Address</th>
+            <th>Hostname</th>
+            <th>MAC Address</th>
+            <th>Open Services</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for device in devices %}
+
+        <tr>
+
+            <td>{{ device.ip }}</td>
+
+            <td>
+
+                {% if device.hostname == "Unknown" %}
+                    <span class="hostname-unknown">
+                        {{ device.hostname }}
+                    </span>
+                {% else %}
+                    {{ device.hostname }}
+                {% endif %}
+
+            </td>
+
+            <td>{{ device.mac }}</td>
+
+            <td>
+
+                {% if device.open_ports %}
+
+                    {% for port in device.open_ports %}
+
+                        <span class="port">
+                            {{ port.port }} - {{ port.service }}
+                        </span>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    No Open Ports Found
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</body>
+
+</html>
