@@ -33,6 +33,15 @@ A Flask-based network asset discovery dashboard that performs host discovery, se
 * MAC address visibility
 * Service enumeration display
 
+---
+
+## Dashboard Preview
+
+<p align="center">
+  <img src="images/flask-dashboard.png" width="1000">
+</p>
+
+---
 
 ## Usage
 
